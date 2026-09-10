@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #ffffff;
+    color: #1e293b;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+.font-serif-accent {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+.font-dm-serif {
+  font-family: 'DM Serif Display', Georgia, serif;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-syne {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-urbanist {
+  font-family: 'Urbanist', sans-serif;
+}
+
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Custom theme colors based on orange brand logo */
+:root {
+  --brand-orange: #E58A1F;
+  --brand-orange-dark: #C97210;
+  --brand-orange-light: #FFF8EE;
+  --brand-navy-dark: #08101E;
+  --brand-navy-card: #0F172A;
+}
+
+.text-brand-orange {
+  color: #E58A1F;
+}
+
+.bg-brand-orange {
+  background-color: #E58A1F;
+}
+
+.bg-brand-orange:hover {
+  background-color: #C97210;
+}
+
+.border-brand-orange {
+  border-color: #E58A1F;
+}
+
+.bg-navy-dark {
+  background-color: #08101E;
+}
+
+.bg-navy-footer {
+  background-color: #050B14;
+}
+
+/* Arch Shaped Container for Hero Image */
+.hero-arch-shape {
+  border-radius: 260px 260px 20px 20px;
+  overflow: hidden;
+}
+
+/* Modern Card Glow */
+.card-hover-shadow {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-shadow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.07), 0 10px 15px -5px rgba(229, 138, 31, 0.08);
+  border-color: rgba(229, 138, 31, 0.4);
+}
+
+/* Float Animation */
+@keyframes softFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-soft-float {
+  animation: softFloat 5s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E58A1F;
+  border-radius: 4px;
+}
+
+/* Infinite Scrolling Marquee for Client Logos */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
