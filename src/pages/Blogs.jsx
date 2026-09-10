@@ -67,7 +67,7 @@ export default function Blogs() {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100/70 border border-amber-200 text-[#E58A1F] text-xs font-bold font-mono uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>IDEAS • INSIGHTS • INNOVATION</span>
+              <span>ENTERPRISE ENGINEERING & INSIGHTS</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl font-black text-[#08101E] tracking-tight leading-[1.12]">
