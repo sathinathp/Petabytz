@@ -11,6 +11,7 @@ import Partners from './pages/Partners';
 import Accreditation from './pages/Accreditation';
 import Careers from './pages/Careers';
 import ContactUs from './pages/ContactUs';
+import Blogs from './pages/Blogs';
 import CaseStudies from './pages/CaseStudies';
 import Whitepapers from './pages/Whitepapers';
 import DataSheets from './pages/DataSheets';
@@ -85,6 +86,8 @@ export default function App() {
           <Route path="/accreditation" element={<Accreditation />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blog" element={<Blogs />} />
           <Route path="/casestudies" element={<CaseStudies />} />
           <Route path="/whitepapers" element={<Whitepapers />} />
           <Route path="/whitepaper" element={<Whitepapers />} />

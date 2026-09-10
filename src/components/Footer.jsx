@@ -84,6 +84,7 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">Resources</h4>
             <ul className="space-y-2 text-xs text-slate-400">
+              <li><Link to="/blogs" className="hover:text-white transition">Blogs & Insights</Link></li>
               <li><Link to="/casestudies" className="hover:text-white transition">Case Studies</Link></li>
               <li><Link to="/whitepapers" className="hover:text-white transition">Whitepapers</Link></li>
               <li><Link to="/datasheets" className="hover:text-white transition">Data Sheets</Link></li>

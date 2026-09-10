@@ -197,14 +197,14 @@ export default function Header() {
 
               {knowledgeDropdown && (
                 <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-slate-200 rounded-2xl shadow-xl p-3 space-y-1 animate-in fade-in slide-in-from-top-2 duration-150 z-50">
-                  <a href="https://petabytz.com/blogs" target="_blank" rel="noreferrer" className="block px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#E58A1F] hover:bg-amber-50/50 rounded-xl transition">
-                    Blogs
-                  </a>
-                  <Link to="/whitepapers" className="block px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#E58A1F] hover:bg-amber-50/50 rounded-xl transition">
-                    Whitepapers
+                  <Link to="/blogs" className="block px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#E58A1F] hover:bg-amber-50/50 rounded-xl transition">
+                    Blogs & Technical Insights
                   </Link>
                   <Link to="/casestudies" className="block px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#E58A1F] hover:bg-amber-50/50 rounded-xl transition">
                     Case Studies
+                  </Link>
+                  <Link to="/whitepapers" className="block px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#E58A1F] hover:bg-amber-50/50 rounded-xl transition">
+                    Whitepapers
                   </Link>
                   <Link to="/datasheets" className="block px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#E58A1F] hover:bg-amber-50/50 rounded-xl transition">
                     Data Sheets
@@ -393,8 +393,9 @@ export default function Header() {
 
           <div className="border-t border-slate-100 pt-2">
             <div className="text-xs font-bold uppercase tracking-wider text-[#E58A1F] py-1">Knowledge Hub</div>
-            <Link to="/whitepapers" className="block py-1 text-xs text-slate-700">Whitepapers</Link>
+            <Link to="/blogs" className="block py-1 text-xs text-slate-700">Blogs & Insights</Link>
             <Link to="/casestudies" className="block py-1 text-xs text-slate-700">Case Studies</Link>
+            <Link to="/whitepapers" className="block py-1 text-xs text-slate-700">Whitepapers</Link>
             <Link to="/datasheets" className="block py-1 text-xs text-slate-700">Data Sheets</Link>
           </div>
 

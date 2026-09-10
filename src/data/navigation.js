@@ -89,6 +89,7 @@ export const navigationData = {
   ],
 
   knowledgeHub: [
+    { title: "Blogs & Insights", href: "/blogs", desc: "Expert engineering articles, blueprints, and tech guides" },
     { title: "Case Studies", href: "/casestudies", desc: "Real enterprise success stories and quantified outcomes" },
     { title: "Whitepapers", href: "/whitepapers", desc: "In-depth technical guides and industry research reports" },
     { title: "Data Sheets", href: "/datasheets", desc: "Quick-reference product sheets and service matrices" }

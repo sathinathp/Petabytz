@@ -29,6 +29,7 @@ import {
 } from 'lucide-react';
 import SeoMeta from '../components/SeoMeta';
 import { motion, AnimatePresence } from 'framer-motion';
+import { blogsData } from '../data/blogs';
 
 export default function Home() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -829,7 +830,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. SUCCESS STORIES THAT INSPIRE (CASE STUDIES) */}
+      {/* 5. SUCCESS STORIES & BLOGS THAT INSPIRE */}
       <section className="py-16 sm:py-20 bg-[#FAF7F2]/70 border-b border-slate-200/80 relative overflow-hidden">
         {/* Decorative soft watermark circles in background */}
         <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full border border-amber-200/30 pointer-events-none" />
@@ -851,21 +852,23 @@ export default function Home() {
               </h2>
             </div>
 
-            <Link
-              to="/casestudies"
-              className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#08101E] hover:text-[#E58A1F] transition-colors group"
-            >
-              <span>View All Case Studies</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#E58A1F] group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="flex items-center space-x-4">
+              <Link
+                to="/blogs"
+                className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#08101E] hover:text-[#E58A1F] transition-colors group"
+              >
+                <span>View All Blogs</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#E58A1F] group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
 
-          {/* 3 Case Study Cards Grid */}
+          {/* 3 Story / Blog Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7">
-            {caseStudies.map((item, idx) => (
+            {blogsData.slice(0, 3).map((item, idx) => (
               <Link
                 key={idx}
-                to={item.href}
+                to="/blogs"
                 className="group relative rounded-2xl overflow-hidden aspect-[16/10] bg-slate-900 shadow-md hover:shadow-2xl transition-all duration-300 block"
               >
                 <img
@@ -873,14 +876,14 @@ export default function Home() {
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 select-none"
                   onError={(e) => {
-                    e.target.src = 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80';
+                    e.target.src = item.fallbackImage || 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80';
                   }}
                 />
 
                 {/* Bottom Dark Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-5 sm:p-6">
                   <div className="text-[11px] font-medium text-slate-300/90 tracking-wide mb-1.5 font-mono">
-                    {item.category}
+                    {item.industry || item.category}
                   </div>
                   <div className="flex items-end justify-between gap-3">
                     <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-amber-200 transition-colors leading-snug">
