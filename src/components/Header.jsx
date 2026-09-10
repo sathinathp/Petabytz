@@ -215,11 +215,11 @@ export default function Header() {
                   <Link to="/blogs" className="block px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#E58A1F] hover:bg-amber-50/50 rounded-xl transition">
                     Blogs & Insights
                   </Link>
-                  <Link to="/whitepapers" className="block px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#E58A1F] hover:bg-amber-50/50 rounded-xl transition">
-                    Whitepapers
-                  </Link>
                   <Link to="/casestudies" className="block px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#E58A1F] hover:bg-amber-50/50 rounded-xl transition">
                     Case Studies
+                  </Link>
+                  <Link to="/whitepapers" className="block px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#E58A1F] hover:bg-amber-50/50 rounded-xl transition">
+                    Whitepapers
                   </Link>
                   <Link to="/datasheets" className="block px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#E58A1F] hover:bg-amber-50/50 rounded-xl transition">
                     Data Sheets
@@ -448,8 +448,8 @@ export default function Header() {
           <div className="border-t border-slate-100 pt-2">
             <div className="text-xs font-bold uppercase tracking-wider text-[#E58A1F] py-1">Knowledge Hub</div>
             <Link to="/blogs" className="block py-1 text-xs text-slate-700">Blogs & Insights</Link>
-            <Link to="/whitepapers" className="block py-1 text-xs text-slate-700">Whitepapers</Link>
             <Link to="/casestudies" className="block py-1 text-xs text-slate-700">Case Studies</Link>
+            <Link to="/whitepapers" className="block py-1 text-xs text-slate-700">Whitepapers</Link>
             <Link to="/datasheets" className="block py-1 text-xs text-slate-700">Data Sheets</Link>
           </div>
 

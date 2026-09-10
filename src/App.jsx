@@ -13,6 +13,7 @@ import Partners from './pages/Partners';
 import Accreditation from './pages/Accreditation';
 import Careers from './pages/Careers';
 import ContactUs from './pages/ContactUs';
+import Blogs from './pages/Blogs';
 import CaseStudies from './pages/CaseStudies';
 import Whitepapers from './pages/Whitepapers';
 import DataSheets from './pages/DataSheets';
@@ -20,7 +21,6 @@ import PressRelease from './pages/PressRelease';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import ServiceDetail from './pages/ServiceDetail';
 import GenAIServices from './pages/GenAIServices';
-import Blogs from './pages/Blogs';
 import NotFound from './pages/NotFound';
 import { servicesData } from './data/services';
 
