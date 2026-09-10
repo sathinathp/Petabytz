@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.use(cors());
 app.use(express.json());
@@ -11,7 +11,8 @@ app.use(express.json());
 const leadStore = {
   inquiries: [],
   subscribers: [],
-  whitepaperDownloads: []
+  whitepaperDownloads: [],
+  applications: []
 };
 
 // Healthcheck
@@ -21,7 +22,9 @@ app.get('/api/health', (req, res) => {
 
 // Contact Form Endpoint
 app.post('/api/contact', (req, res) => {
-  const { name, email, phone, company, serviceInterest, message, ndaRequested } = req.body;
+  const { name: reqName, fullName, email: reqEmail, workEmail, phone, company, serviceInterest, message, ndaRequested } = req.body;
+  const name = reqName || fullName;
+  const email = reqEmail || workEmail;
 
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Missing required fields (name, email, message).' });
@@ -65,7 +68,9 @@ app.post('/api/newsletter', (req, res) => {
 
 // Whitepaper Download Endpoint
 app.post('/api/whitepaper-download', (req, res) => {
-  const { name, email, company, whitepaperId } = req.body;
+  const { name: reqName, fullName, email: reqEmail, workEmail, company, whitepaperId } = req.body;
+  const name = reqName || fullName;
+  const email = reqEmail || workEmail;
   if (!name || !email) {
     return res.status(400).json({ error: 'Name and email are required.' });
   }
@@ -75,6 +80,37 @@ app.post('/api/whitepaper-download', (req, res) => {
   console.log('[WHITEPAPER DOWNLOAD]', record);
 
   res.json({ success: true, message: 'Whitepaper download authorized.', downloadUrl: `/whitepapers/${whitepaperId || 'default'}.pdf` });
+});
+
+// Career Application Endpoint
+app.post('/api/careers', (req, res) => {
+  const { name: reqName, fullName, email: reqEmail, workEmail, phone, jobId: reqJobId, position, linkedin, resumeNote } = req.body;
+  const name = reqName || fullName;
+  const email = reqEmail || workEmail;
+  const jobId = reqJobId || position;
+  if (!name || !email || !jobId) {
+    return res.status(400).json({ error: 'Name, email, and position are required.' });
+  }
+
+  const application = {
+    id: `APP-${Date.now()}`,
+    name,
+    email,
+    phone: phone || '',
+    jobId,
+    linkedin: linkedin || '',
+    resumeNote: resumeNote || '',
+    submittedAt: new Date().toISOString()
+  };
+
+  leadStore.applications.push(application);
+  console.log('[CAREER APPLICATION RECEIVED]', application);
+
+  res.status(201).json({
+    success: true,
+    message: 'Your application has been received. Our talent acquisition team will review your profile.',
+    applicationId: application.id
+  });
 });
 
 app.listen(PORT, () => {

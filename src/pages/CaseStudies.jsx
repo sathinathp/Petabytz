@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CheckCircle2, ArrowRight, Tag, Layers, Sparkles } from 'lucide-react';
 import SeoMeta from '../components/SeoMeta';
 import CTASection from '../components/CTASection';
@@ -21,17 +22,26 @@ export default function CaseStudies() {
       />
 
       {/* Hero */}
-      <section className="relative gradient-hero-bg text-white py-16 lg:py-20 border-b border-slate-800">
-        <div className="hero-pattern absolute inset-0 opacity-30 pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-          <span className="inline-block bg-brand-orange/20 text-brand-orange text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-brand-orange/30 mb-4">
-            Proven Results
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Client <span className="gradient-text-orange">Case Studies</span>
+      <section 
+        className="relative bg-[#FAF7F2] border-b border-stone-200 py-12 lg:py-16 overflow-hidden"
+        style={{
+          backgroundImage: 'url(/images/background/subheader.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="absolute inset-0 bg-[#FAF7F2]/85 backdrop-blur-[1px]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center space-x-2 text-xs font-semibold text-stone-500 uppercase tracking-wider mb-3">
+            <Link to="/" className="hover:text-[#E58A1F] transition">Home</Link>
+            <span>/</span>
+            <span className="text-[#17233A]">Case Studies</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#17233A] tracking-tight">
+            Enterprise <span className="text-[#E58A1F]">Case Studies</span>
           </h1>
-          <p className="text-base sm:text-lg text-slate-300 mt-4 leading-relaxed">
-            Real enterprise transformation stories detailing challenges, solutions, and quantified business impact.
+          <p className="mt-2 text-sm sm:text-base text-stone-600 max-w-3xl leading-relaxed">
+            Real enterprise transformation stories detailing technical challenges, engineered solutions, and quantified business impact across global organizations.
           </p>
         </div>
       </section>

@@ -27,7 +27,7 @@ export default function ContactUs() {
 
   const [status, setStatus] = useState({ state: 'idle', message: '' }); // idle | submitting | success | error
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       setStatus({ state: 'error', message: 'Please complete all required fields.' });
@@ -36,22 +36,41 @@ export default function ContactUs() {
 
     setStatus({ state: 'submitting', message: '' });
 
-    // Simulate API request
-    setTimeout(() => {
-      setStatus({ 
-        state: 'success', 
-        message: 'Thank you for contacting PetaBytz! Our lead solution architect will review your project and get in touch within 2 business hours.' 
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        serviceInterest: 'Cloud Transformation',
-        message: '',
-        ndaRequested: false
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setStatus({ 
+          state: 'success', 
+          message: data.message || 'Thank you for contacting PetaBytz! Our lead solution architect will review your project and get in touch within 2 business hours.' 
+        });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          serviceInterest: 'Cloud Transformation',
+          message: '',
+          ndaRequested: false
+        });
+      } else {
+        setStatus({
+          state: 'error',
+          message: data.error || 'Submission failed. Please check your information and try again.'
+        });
+      }
+    } catch (err) {
+      setStatus({
+        state: 'error',
+        message: 'Network error communicating with the server. Please try again.'
       });
-    }, 800);
+    }
   };
 
   return (
@@ -61,18 +80,21 @@ export default function ContactUs() {
         description="Looking for Digital Transformation, Cloud Services, or 24/7 ITSM Managed Support? Connect with PetaBytz Technologies today for expert consulting."
       />
 
-      {/* Hero */}
-      <section className="relative gradient-hero-bg text-white py-16 border-b border-slate-800">
-        <div className="hero-pattern absolute inset-0 opacity-30 pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-          <span className="inline-block bg-brand-orange/20 text-brand-orange text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-brand-orange/30 mb-4">
+      {/* Enterprise Hero Banner */}
+      <section className="relative w-full bg-[#FAF7F2] border-b border-[#E8E2D9] overflow-hidden py-10 sm:py-14">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none mix-blend-multiply"
+          style={{ backgroundImage: "url('/images/background/subheader.jpg')" }}
+        />
+        <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
+          <span className="inline-block bg-[#FF8A00]/15 text-[#FF8A00] text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-sm border border-[#FF8A00]/30">
             Get In Touch
           </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Let's Build Something <span className="gradient-text-orange">Extraordinary</span>
+          <h1 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#17233A] tracking-tight">
+            Connect with PetaBytz Enterprise Architects
           </h1>
-          <p className="text-base sm:text-lg text-slate-300 mt-4 leading-relaxed">
-            Have a project in mind or need 24/7 enterprise IT managed services? Our certified cloud architects and technology consultants are ready to help.
+          <p className="text-xs sm:text-sm text-[#555555] max-w-2xl mx-auto leading-relaxed">
+            Have an upcoming modernization project or need 24/7 enterprise IT managed services? Our certified cloud architects are ready to assist.
           </p>
         </div>
       </section>

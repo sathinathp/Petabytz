@@ -7,16 +7,45 @@ import { whitepapersData } from '../data/whitepapers';
 export default function Whitepapers() {
   const [selectedWp, setSelectedWp] = useState(null);
   const [downloadForm, setDownloadForm] = useState({ name: '', email: '', company: '' });
-  const [downloadSuccess, setDownloadSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [downloadError, setDownloadError] = useState('');
 
-  const handleDownload = (e) => {
+  const handleDownload = async (e) => {
     e.preventDefault();
-    setDownloadSuccess(true);
-    setTimeout(() => {
-      setDownloadSuccess(false);
-      setSelectedWp(null);
-      setDownloadForm({ name: '', email: '', company: '' });
-    }, 4000);
+    if (!downloadForm.name.trim() || !downloadForm.email.trim() || !selectedWp) return;
+
+    setLoading(true);
+    setDownloadError('');
+
+    try {
+      const response = await fetch('/api/whitepaper-download', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: downloadForm.name,
+          email: downloadForm.email,
+          company: downloadForm.company,
+          whitepaperId: selectedWp.id
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setDownloadSuccess(true);
+        setTimeout(() => {
+          setDownloadSuccess(false);
+          setSelectedWp(null);
+          setDownloadForm({ name: '', email: '', company: '' });
+        }, 4000);
+      } else {
+        setDownloadError(data.error || 'Failed to authorize whitepaper download.');
+      }
+    } catch (err) {
+      setDownloadError('Network error connecting to API. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -26,18 +55,21 @@ export default function Whitepapers() {
         description="Download free enterprise whitepapers by PetaBytz Technologies on DevOps maturity, Kubernetes security, Microsoft 365 governance, and next-gen ITSM."
       />
 
-      {/* Hero */}
-      <section className="relative gradient-hero-bg text-white py-16 lg:py-20 border-b border-slate-800">
-        <div className="hero-pattern absolute inset-0 opacity-30 pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-          <span className="inline-block bg-brand-orange/20 text-brand-orange text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-brand-orange/30 mb-4">
-            Research & Insights
+      {/* Enterprise Hero Banner */}
+      <section className="relative w-full bg-[#FAF7F2] border-b border-[#E8E2D9] overflow-hidden py-10 sm:py-14">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none mix-blend-multiply"
+          style={{ backgroundImage: "url('/images/background/subheader.jpg')" }}
+        />
+        <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
+          <span className="inline-block bg-[#FF8A00]/15 text-[#FF8A00] text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-sm border border-[#FF8A00]/30">
+            Research & Frameworks
           </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Technical <span className="gradient-text-orange">Whitepapers</span>
+          <h1 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#17233A] tracking-tight">
+            Technical Architecture Whitepapers
           </h1>
-          <p className="text-base sm:text-lg text-slate-300 mt-4 leading-relaxed">
-            In-depth engineering frameworks, compliance architectures, and cloud modernization blueprints authored by our principal architects.
+          <p className="text-xs sm:text-sm text-[#555555] max-w-2xl mx-auto leading-relaxed">
+            In-depth engineering frameworks, compliance blueprints, and cloud modernization playbooks authored by PetaBytz principal consultants.
           </p>
         </div>
       </section>

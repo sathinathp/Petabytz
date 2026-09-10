@@ -1,19 +1,42 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Send, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Send, CheckCircle2, ArrowRight, Loader2, AlertCircle } from 'lucide-react';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | loading | success | error
+  const [message, setMessage] = useState('');
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    if (!email || !email.includes('@')) return;
-    setSubscribed(true);
-    setTimeout(() => {
-      setEmail('');
-      setSubscribed(false);
-    }, 4000);
+    if (!email || !email.includes('@')) {
+      setStatus('error');
+      setMessage('Please enter a valid email address');
+      return;
+    }
+
+    try {
+      setStatus('loading');
+      setMessage('');
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setStatus('success');
+        setMessage(data.message || 'Subscribed successfully!');
+        setEmail('');
+      } else {
+        setStatus('error');
+        setMessage(data.message || 'Subscription failed. Please try again.');
+      }
+    } catch (err) {
+      setStatus('error');
+      setMessage('Network error. Please try again later.');
+    }
   };
 
   return (
@@ -84,6 +107,7 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">Resources</h4>
             <ul className="space-y-2 text-xs text-slate-400">
+              <li><Link to="/blogs" className="hover:text-white transition">Blogs & Insights</Link></li>
               <li><Link to="/casestudies" className="hover:text-white transition">Case Studies</Link></li>
               <li><Link to="/whitepapers" className="hover:text-white transition">Whitepapers</Link></li>
               <li><Link to="/datasheets" className="hover:text-white transition">Data Sheets</Link></li>
@@ -104,19 +128,28 @@ export default function Footer() {
                 <input
                   type="email"
                   value={email}
+                  disabled={status === 'loading'}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="w-full bg-slate-900 border border-slate-700/80 rounded-lg py-2 pl-3 pr-9 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#E58A1F]"
+                  className="w-full bg-slate-900 border border-slate-700/80 rounded-lg py-2 pl-3 pr-9 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#E58A1F] disabled:opacity-60"
                 />
                 <button
                   type="submit"
-                  className="absolute right-1 top-1/2 -translate-y-1/2 w-7 h-7 bg-[#E58A1F] hover:bg-[#C97210] text-white rounded flex items-center justify-center transition shadow-xs"
+                  disabled={status === 'loading'}
+                  className="absolute right-1 top-1/2 -translate-y-1/2 w-7 h-7 bg-[#E58A1F] hover:bg-[#C97210] disabled:bg-stone-600 text-white rounded flex items-center justify-center transition shadow-xs"
                 >
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  {status === 'loading' ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <ArrowRight className="w-3.5 h-3.5" />}
                 </button>
               </div>
-              {subscribed && (
-                <p className="text-[11px] text-emerald-400 mt-1">Thank you for subscribing!</p>
+              {status === 'success' && (
+                <p className="text-[11px] text-emerald-400 mt-1 flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3" /> {message}
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="text-[11px] text-rose-400 mt-1 flex items-center gap-1">
+                  <AlertCircle className="w-3 h-3" /> {message}
+                </p>
               )}
             </form>
 

@@ -4,7 +4,7 @@ export const caseStudiesData = [
     title: "Migration of High-Traffic Music Streaming Service to Kubernetes",
     category: "Cloud & Kubernetes",
     client: "Global Entertainment Platform",
-    image: "/images/casestudy/cs-kubernetes.png",
+    image: "/images/casestudy/kubernetes.png",
     challenge: "Handling millions of concurrent audio streams during peak hours with unpredictable latency and high VM infrastructure spend.",
     solution: "Designed automated multi-region Amazon EKS clusters with Istio service mesh, Horizontal Pod Autoscaling (HPA), and Redis caching layers.",
     results: [
@@ -19,7 +19,7 @@ export const caseStudiesData = [
     title: "Implementing Automated DevOps & CI/CD for Tier-1 E-Commerce",
     category: "DevOps Automation",
     client: "Leading Retail Enterprise",
-    image: "/images/casestudy/cs-devops.png",
+    image: "/images/casestudy/devops.png",
     challenge: "Manual release cycles took 3 weeks, leading to delayed promotional rollouts and frequent production deployment rollbacks.",
     solution: "Implemented end-to-end GitOps pipelines with GitHub Actions, Terraform IaC, and automated Docker staging environments.",
     results: [
@@ -34,7 +34,7 @@ export const caseStudiesData = [
     title: "Seamless Migration of 1,000+ Enterprise Mailboxes to Microsoft 365",
     category: "Digital Workplace",
     client: "Multinational Financial Services Firm",
-    image: "/images/casestudy/cs-m365.png",
+    image: "/images/casestudy/seamless.png",
     challenge: "Fragmented legacy on-premise Exchange servers with escalating storage maintenance costs and strict compliance mandates.",
     solution: "Staged cutover migration to Microsoft 365 E5 with automated DLP policies, Intune MDM, and single sign-on via Entra ID.",
     results: [
@@ -49,7 +49,7 @@ export const caseStudiesData = [
     title: "Transforming ITSM L1 & L2 Support Operations for Global Workforce",
     category: "ITSM Managed Services",
     client: "Global Logistics & Supply Chain Provider",
-    image: "/images/casestudy/cs-itsm.png",
+    image: "/images/casestudy/l1support.png",
     challenge: "Surging ticket volumes and average resolution times exceeding 48 hours for 5,000+ distributed employees.",
     solution: "Deployed 24/7 follow-the-sun IT Service Desk with automated Slack bot triage and standardized ITIL problem resolution workflows.",
     results: [
@@ -64,7 +64,7 @@ export const caseStudiesData = [
     title: "Data-Powered Sales Transformation with Intelligent Salesforce CRM",
     category: "Salesforce Solutions",
     client: "B2B SaaS Technology Leader",
-    image: "/images/casestudy/cs-salesforce.png",
+    image: "/images/casestudy/salesforce.png",
     challenge: "Disjointed lead pipelines, manual quoting delays, and lack of visibility into global sales rep quotas.",
     solution: "Implemented customized Salesforce Sales Cloud with CPQ rules, automated lead scoring, and bi-directional ERP data sync.",
     results: [
@@ -79,7 +79,7 @@ export const caseStudiesData = [
     title: "Data Center Consolidation and Hybrid Cloud Architecture",
     category: "Cloud Migration",
     client: "Healthcare Systems Provider",
-    image: "/images/casestudy/cs-infra.png",
+    image: "/images/casestudy/itinfrastructure.png",
     challenge: "Aging on-premise hardware prone to component failures and escalating data center co-location lease costs.",
     solution: "Consolidated 150+ physical servers into Microsoft Azure with Azure Site Recovery (ASR) and HIPAA-compliant encryption.",
     results: [

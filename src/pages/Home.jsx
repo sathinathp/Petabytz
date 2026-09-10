@@ -25,7 +25,11 @@ import {
   Layers,
   Phone,
   Mail,
-  Mouse
+  Mouse,
+  Building2,
+  Activity,
+  Database,
+  Workflow
 } from 'lucide-react';
 import SeoMeta from '../components/SeoMeta';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -261,8 +265,8 @@ export default function Home() {
   return (
     <div className="bg-white text-slate-800">
       <SeoMeta 
-        title="Innovation Lives Here - AventraInc Tech"
-        description="Visit our Hyderabad office at DMR Corporate and discover how AventraInc Tech can help you modernize, transform and scale with cloud, AI and intelligent enterprise technology."
+        title="PetaBytz Technologies - Enterprise Cloud, AI & ITSM Consulting"
+        description="Empowering global enterprises with multi-cloud transformation, cognitive AI engineering, and 24/7 proactive ITSM managed operations from our Hyderabad global delivery headquarters."
       />
 
       {/* 1. FULL-WIDTH HERO SECTION (DMR CORPORATE BACKGROUND WITH CLOUD & AI CONTENT) */}
@@ -829,6 +833,182 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ENTERPRISE PROVEN DELIVERY LIFECYCLE */}
+      <section className="py-16 sm:py-20 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-2">
+            <div className="flex items-center justify-center space-x-2.5">
+              <span className="w-6 h-[1.5px] bg-[#E58A1F] inline-block" />
+              <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em] text-slate-500 uppercase font-mono">
+                ENGINEERING DISCIPLINE
+              </span>
+              <span className="w-6 h-[1.5px] bg-[#E58A1F] inline-block" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#08101E] tracking-tight">
+              Our Proven 4-Stage <span className="text-[#E58A1F] italic font-serif font-normal">Delivery Lifecycle</span>
+            </h2>
+            <p className="text-xs sm:text-[13.5px] text-slate-600 leading-relaxed">
+              Every enterprise engagement follows a disciplined, milestone-driven framework to eliminate downtime, mitigate risk, and maximize ROI.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                step: "01",
+                title: "Discovery & TCO Benchmark",
+                desc: "Comprehensive readiness assessment, automated asset scanning, inter-dependency mapping, and total cost of ownership modeling.",
+                badge: "ASSESSMENT",
+                icon: Activity
+              },
+              {
+                step: "02",
+                title: "Target Blueprint Architecture",
+                desc: "Cloud-native target architecture, zero-trust security guardrails, IaC pipeline specifications, and FinOps budget telemetry.",
+                badge: "BLUEPRINT",
+                icon: Layers
+              },
+              {
+                step: "03",
+                title: "Phased Agile Migration",
+                desc: "Continuous automated data replication, microservice cutover with zero downtime, dual-run testing, and rollback safety gates.",
+                badge: "MIGRATION",
+                icon: Workflow
+              },
+              {
+                step: "04",
+                title: "24/7 Operations & FinOps",
+                desc: "Follow-the-sun ITIL servicedesk, automated NOC/SOC incident response, sub-4-hour resolution, and monthly spend tuning.",
+                badge: "GOVERNANCE",
+                icon: ShieldCheck
+              }
+            ].map((phase, idx) => (
+              <div 
+                key={idx}
+                className="bg-[#FAF7F2]/40 rounded-md border border-[#E8E2D9] p-6 hover:border-[#FF8A00] transition-all duration-200 flex flex-col justify-between group shadow-xs hover:shadow-sm"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-2xl font-black text-[#FF8A00] font-mono">
+                      {phase.step}
+                    </span>
+                    <div className="w-8 h-8 rounded bg-white border border-[#E8E2D9] text-[#17233A] group-hover:text-[#FF8A00] flex items-center justify-center transition">
+                      <phase.icon className="w-4 h-4" />
+                    </div>
+                  </div>
+
+                  <span className="inline-block text-[9.5px] font-bold tracking-wider text-slate-500 uppercase font-mono mb-2">
+                    {phase.badge}
+                  </span>
+
+                  <h3 className="text-base font-bold text-[#17233A] mb-2 leading-snug">
+                    {phase.title}
+                  </h3>
+
+                  <p className="text-xs text-[#555555] leading-relaxed">
+                    {phase.desc}
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-3 border-t border-[#E8E2D9]/80 flex items-center text-[11px] font-semibold text-[#FF8A00]">
+                  <span>Milestone-driven QA</span>
+                  <CheckCircle2 className="w-3 h-3 ml-1.5" />
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTOR SPECIALIZATIONS / INDUSTRIES */}
+      <section className="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div className="space-y-1.5">
+              <div className="flex items-center space-x-2.5">
+                <span className="w-6 h-[1.5px] bg-[#E58A1F] inline-block shrink-0" />
+                <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em] text-slate-500 uppercase font-mono">
+                  INDUSTRY EXPERTISE
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#08101E] tracking-tight">
+                Specialized Solutions for <span className="text-[#E58A1F] italic font-serif font-normal">Enterprise Sectors</span>
+              </h2>
+            </div>
+            <Link
+              to="/clients"
+              className="inline-flex items-center text-xs font-bold text-[#08101E] hover:text-[#E58A1F] transition group"
+            >
+              <span>View Client Case Profiles</span>
+              <ArrowRight className="w-3.5 h-3.5 ml-1.5 text-[#E58A1F] group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                sector: "BFSI & Fintech",
+                desc: "SEC and FINRA compliant multi-tenant cloud migrations, automated DLP, and ultra-low latency transaction processing.",
+                metric: "99.999% SLA",
+                metricLabel: "Banking Portal Uptime",
+                icon: Building2
+              },
+              {
+                sector: "Healthcare & Life Sciences",
+                desc: "HIPAA and SOC 2 certified EHR cloud hosting, disaster recovery automation, and patient health data telemetry.",
+                metric: "< 15 Min",
+                metricLabel: "Failover Recovery (RTO)",
+                icon: ShieldCheck
+              },
+              {
+                sector: "Retail & E-Commerce",
+                desc: "Autonomous Kubernetes scaling for high-traffic promotions, sub-second search indexing, and 24/7 servicedesk triage.",
+                metric: "40% Savings",
+                metricLabel: "Compute Cost Reduction",
+                icon: TrendingUp
+              },
+              {
+                sector: "Manufacturing & Supply Chain",
+                desc: "SAP on Azure migrations, predictive equipment maintenance with machine learning, and IoT sensor pipelines.",
+                metric: "88% First-Contact",
+                metricLabel: "ITIL Issue Resolution",
+                icon: Server
+              }
+            ].map((ind, idx) => (
+              <div 
+                key={idx}
+                className="bg-white rounded-md border border-[#DDDDDD] p-6 hover:border-[#FF8A00] transition flex flex-col justify-between shadow-xs"
+              >
+                <div>
+                  <div className="w-10 h-10 rounded bg-[#FFF7EE] border border-[#FFE2C2] text-[#FF8A00] flex items-center justify-center mb-4">
+                    <ind.icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-bold text-[#17233A] mb-2">
+                    {ind.sector}
+                  </h3>
+                  <p className="text-xs text-[#555555] leading-relaxed mb-6">
+                    {ind.desc}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-[#F0F0F0] bg-[#FAF7F2]/50 -mx-6 -mb-6 p-4 rounded-b-md">
+                  <div className="text-lg font-black text-[#17233A] font-mono">
+                    {ind.metric}
+                  </div>
+                  <div className="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">
+                    {ind.metricLabel}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
       {/* 5. SUCCESS STORIES THAT INSPIRE (CASE STUDIES) */}
       <section className="py-16 sm:py-20 bg-[#FAF7F2]/70 border-b border-slate-200/80 relative overflow-hidden">
         {/* Decorative soft watermark circles in background */}
@@ -1050,7 +1230,7 @@ export default function Home() {
 
               {/* Supporting Text */}
               <p className="text-sm sm:text-base lg:text-[16.5px] text-slate-300 max-w-xl leading-relaxed font-normal">
-                Connect with our experts and discover how AventraInc Tech can help you modernize, transform and scale with cloud, AI and intelligent enterprise technology.
+                Connect with our certified solution architects and discover how PetaBytz Technologies can help you modernize, transform and scale with cloud, AI and intelligent enterprise technology.
               </p>
 
               {/* CTA Action Buttons */}

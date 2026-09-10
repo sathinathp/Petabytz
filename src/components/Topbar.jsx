@@ -15,43 +15,57 @@ export default function Topbar({ activeCountry, setActiveCountry }) {
   return (
     <div className="bg-[#011a28] text-slate-300 text-xs py-2 border-b border-slate-800/80 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center gap-2">
-        {/* Left: Social Media */}
-        <div className="hidden sm:flex items-center space-x-3 text-slate-400">
-          <span className="text-slate-400 font-medium">Follow PetaBytz:</span>
-          <a
-            href="https://www.linkedin.com/company/petabytz-technologies/"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-brand-orange transition-colors"
-          >
-            LinkedIn
-          </a>
-          <span className="text-slate-600">|</span>
-          <a
-            href="https://twitter.com/peta_bytz"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-brand-orange transition-colors"
-          >
-            Twitter/X
-          </a>
-          <span className="text-slate-600">|</span>
+        {/* Left: Social Media Logo Icons (Matching petabytz.com) */}
+        <div className="flex items-center space-x-3.5 border-l border-r border-[#00344f] px-3.5 py-1 text-[#FF8A00]">
           <a
             href="https://www.facebook.com/petabytz/"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-brand-orange transition-colors"
+            className="text-[#FF8A00] hover:text-white transition-colors flex items-center justify-center"
+            title="Facebook"
+            aria-label="Facebook"
           >
-            Facebook
+            <i className="fa fa-facebook-official text-[15px]" aria-hidden="true"></i>
           </a>
-          <span className="text-slate-600">|</span>
+          <a
+            href="https://twitter.com/peta_bytz"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:opacity-80 transition-opacity flex items-center justify-center"
+            title="Twitter / X"
+            aria-label="Twitter / X"
+          >
+            <img src="/images/twitter.png" alt="Twitter/X" className="w-[15px] h-[15px] object-contain" />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/petabytz-technologies/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#FF8A00] hover:text-white transition-colors flex items-center justify-center"
+            title="LinkedIn"
+            aria-label="LinkedIn"
+          >
+            <i className="fa fa-linkedin-square text-[15px]" aria-hidden="true"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/petabytz/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#FF8A00] hover:text-white transition-colors flex items-center justify-center"
+            title="Instagram"
+            aria-label="Instagram"
+          >
+            <i className="fa fa-instagram text-[15px]" aria-hidden="true"></i>
+          </a>
           <a
             href="https://www.youtube.com/channel/UCLNGYKEDBVRMo5OvayaryrA"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-brand-orange transition-colors"
+            className="text-[#FF8A00] hover:text-white transition-colors flex items-center justify-center"
+            title="YouTube"
+            aria-label="YouTube"
           >
-            YouTube
+            <i className="fa fa-youtube text-[16px]" aria-hidden="true"></i>
           </a>
         </div>
 

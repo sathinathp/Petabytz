@@ -20,16 +20,29 @@ import {
 } from 'lucide-react';
 import { navigationData } from '../data/navigation';
 import { locationsData } from '../data/locations';
+import { servicesData } from '../data/services';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [expandedMobileCategory, setExpandedMobileCategory] = useState(null);
   const [servicesDropdown, setServicesDropdown] = useState(false);
   const [knowledgeDropdown, setKnowledgeDropdown] = useState(false);
   const [companyDropdown, setCompanyDropdown] = useState(false);
   const [locationDropdown, setLocationDropdown] = useState(false);
   const [activeCountry, setActiveCountry] = useState('india');
   const [scrolled, setScrolled] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
+
+  const searchResults = searchQuery.trim().length > 1
+    ? Object.values(servicesData).filter(s =>
+        s.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        s.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (s.overview && s.overview.toLowerCase().includes(searchQuery.toLowerCase()))
+      ).slice(0, 6)
+    : [];
 
   const countries = [
     { key: 'india', name: 'India', flag: '/images/logo/india-flag.jpg' },
@@ -41,13 +54,13 @@ export default function Header() {
 
   const getCategoryIcon = (catName) => {
     switch(catName) {
-      case 'AI Solutions': return <Brain className="w-4 h-4 text-[#E58A1F]" />;
-      case 'Cloud Transformation': return <Cloud className="w-4 h-4 text-[#E58A1F]" />;
-      case 'Digital Transformation': return <Layers className="w-4 h-4 text-[#E58A1F]" />;
-      case 'ITSM Managed Services': return <Headphones className="w-4 h-4 text-[#E58A1F]" />;
-      case 'Managed Services': return <Cpu className="w-4 h-4 text-[#E58A1F]" />;
-      case 'Salesforce Services': return <Zap className="w-4 h-4 text-[#E58A1F]" />;
-      default: return <Briefcase className="w-4 h-4 text-[#E58A1F]" />;
+      case 'AI Solutions': return <Brain className="w-4 h-4 text-[#FF8A00]" />;
+      case 'Cloud Transformation': return <Cloud className="w-4 h-4 text-[#FF8A00]" />;
+      case 'Digital Transformation': return <Layers className="w-4 h-4 text-[#FF8A00]" />;
+      case 'ITSM Managed Services': return <Headphones className="w-4 h-4 text-[#FF8A00]" />;
+      case 'Managed Services': return <Cpu className="w-4 h-4 text-[#FF8A00]" />;
+      case 'Salesforce Services': return <Zap className="w-4 h-4 text-[#FF8A00]" />;
+      default: return <Briefcase className="w-4 h-4 text-[#FF8A00]" />;
     }
   };
 
@@ -61,6 +74,8 @@ export default function Header() {
 
   useEffect(() => {
     setMobileMenuOpen(false);
+    setMobileServicesOpen(false);
+    setExpandedMobileCategory(null);
     setServicesDropdown(false);
     setKnowledgeDropdown(false);
     setCompanyDropdown(false);
@@ -68,8 +83,8 @@ export default function Header() {
   }, [location]);
 
   return (
-    <header className={`sticky top-0 z-50 bg-white/98 backdrop-blur-md transition-all duration-200 border-b ${
-      scrolled ? 'border-slate-200/90 shadow-xs py-2' : 'border-slate-100 py-3.5'
+    <header className={`sticky top-0 z-50 bg-white transition-all duration-200 border-b ${
+      scrolled ? 'border-stone-200 shadow-sm py-2' : 'border-stone-100 py-3'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -82,7 +97,7 @@ export default function Header() {
               className="h-10 sm:h-12 w-auto object-contain hover:opacity-95 transition-opacity"
               onError={(e) => {
                 e.target.style.display = 'none';
-                e.target.parentElement.innerHTML = '<span class="text-2xl font-black text-[#08101E]">Peta<span class="text-[#E58A1F]">Bytz</span></span>';
+                e.target.parentElement.innerHTML = '<span class="text-2xl font-black text-[#17233A]">Peta<span class="text-[#FF8A00]">Bytz</span></span>';
               }}
             />
           </Link>
@@ -123,33 +138,33 @@ export default function Header() {
 
               {/* Mega Menu Dropdown */}
               {servicesDropdown && (
-                <div className="fixed left-1/2 -translate-x-1/2 top-[62px] w-[95vw] max-w-[1280px] bg-white border border-slate-200 rounded-3xl shadow-2xl p-8 animate-in fade-in slide-in-from-top-2 duration-150 z-50 max-h-[85vh] overflow-y-auto">
-                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
+                <div className="fixed left-1/2 -translate-x-1/2 top-[62px] w-[96vw] max-w-[1240px] bg-white border border-stone-200 rounded-lg shadow-xl p-6 animate-in fade-in duration-150 z-50 max-h-[85vh] overflow-y-auto">
+                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-5">
                     {navigationData.services.map((cat, idx) => (
-                      <div key={idx} className="space-y-4">
+                      <div key={idx} className="space-y-3">
                         <Link 
                           to={cat.href}
-                          className="flex items-center space-x-2 pb-2.5 border-b-2 border-amber-100 hover:border-[#E58A1F] transition group"
+                          className="flex items-center space-x-2 pb-2 border-b border-amber-200 hover:border-[#FF8A00] transition group"
                         >
-                          <div className="w-7 h-7 rounded-lg bg-amber-50 flex items-center justify-center shrink-0">
+                          <div className="w-6 h-6 rounded bg-amber-50 flex items-center justify-center shrink-0">
                             {getCategoryIcon(cat.category)}
                           </div>
-                          <span className="text-xs font-black uppercase tracking-wider text-[#08101E] group-hover:text-[#E58A1F] transition">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-[#17233A] group-hover:text-[#FF8A00] transition">
                             {cat.category}
                           </span>
                         </Link>
 
-                        <ul className="space-y-2.5">
+                        <ul className="space-y-2">
                           {cat.items.map((item, itemIdx) => (
                             <li key={itemIdx}>
                               <Link 
                                 to={item.href}
                                 className="group block text-left"
                               >
-                                <div className="text-[12.5px] font-bold text-slate-800 group-hover:text-[#E58A1F] transition leading-snug">
+                                <div className="text-[12px] font-bold text-stone-800 group-hover:text-[#FF8A00] transition leading-snug">
                                   {item.title}
                                 </div>
-                                <div className="text-[11px] text-slate-400 group-hover:text-slate-600 transition line-clamp-1 mt-0.5">
+                                <div className="text-[10.5px] text-stone-400 group-hover:text-stone-600 transition line-clamp-1 mt-0.5">
                                   {item.desc}
                                 </div>
                               </Link>
@@ -160,14 +175,14 @@ export default function Header() {
                     ))}
                   </div>
 
-                  <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                  <div className="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs text-stone-500">
                     <div className="flex items-center space-x-2">
-                      <Sparkles className="w-4 h-4 text-[#E58A1F]" />
-                      <span>Explore customized IT modernization & AI architecture tailored to your business.</span>
+                      <Sparkles className="w-3.5 h-3.5 text-[#FF8A00]" />
+                      <span>Enterprise IT consulting, multi-cloud architectures & certified managed operations.</span>
                     </div>
                     <Link 
                       to="/contact-us"
-                      className="font-bold text-[#E58A1F] hover:text-[#C97210] flex items-center"
+                      className="font-bold text-[#FF8A00] hover:text-[#C97210] flex items-center"
                     >
                       <span>Speak to an Enterprise Specialist</span>
                       <ArrowRight className="w-3.5 h-3.5 ml-1" />
@@ -185,21 +200,21 @@ export default function Header() {
             >
               <button 
                 className={`relative flex items-center space-x-1 py-2 transition hover:text-[#E58A1F] ${
-                  knowledgeDropdown || ['/casestudies', '/whitepapers', '/datasheets'].includes(location.pathname) ? 'text-[#E58A1F]' : ''
+                  knowledgeDropdown || ['/casestudies', '/whitepapers', '/datasheets', '/blogs'].includes(location.pathname) ? 'text-[#E58A1F]' : ''
                 }`}
               >
                 <span>Knowledge Hub</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${knowledgeDropdown ? 'rotate-180 text-[#E58A1F]' : 'text-slate-500'}`} />
-                {['/casestudies', '/whitepapers', '/datasheets'].includes(location.pathname) && (
+                {['/casestudies', '/whitepapers', '/datasheets', '/blogs'].includes(location.pathname) && (
                   <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#E58A1F] rounded-full" />
                 )}
               </button>
 
               {knowledgeDropdown && (
                 <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-slate-200 rounded-2xl shadow-xl p-3 space-y-1 animate-in fade-in slide-in-from-top-2 duration-150 z-50">
-                  <a href="https://petabytz.com/blogs" target="_blank" rel="noreferrer" className="block px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#E58A1F] hover:bg-amber-50/50 rounded-xl transition">
-                    Blogs
-                  </a>
+                  <Link to="/blogs" className="block px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#E58A1F] hover:bg-amber-50/50 rounded-xl transition">
+                    Blogs & Insights
+                  </Link>
                   <Link to="/whitepapers" className="block px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#E58A1F] hover:bg-amber-50/50 rounded-xl transition">
                     Whitepapers
                   </Link>
@@ -326,13 +341,15 @@ export default function Header() {
             </div>
 
             {/* Search Trigger */}
-            <Link 
-              to="/whitepapers"
-              className="p-2 text-slate-500 hover:text-[#E58A1F] transition rounded-full hover:bg-slate-100"
-              title="Search"
+            <button 
+              type="button"
+              onClick={() => setSearchOpen(true)}
+              className="p-2 text-stone-500 hover:text-[#FF8A00] transition rounded-full hover:bg-stone-100 cursor-pointer"
+              title="Search Services & Solutions"
+              aria-label="Open Search"
             >
               <Search className="w-4 h-4" />
-            </Link>
+            </button>
 
             {/* Get In Touch Pill Button */}
             <Link
@@ -381,18 +398,56 @@ export default function Header() {
           <Link to="/" className="block py-2 text-sm font-semibold text-slate-800">Home</Link>
           
           <div className="border-t border-slate-100 pt-2">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#E58A1F] py-1">Services</div>
-            {navigationData.services.map((cat, idx) => (
-              <div key={idx} className="py-1">
-                <Link to={cat.href} className="text-xs font-bold text-slate-800 hover:text-[#E58A1F] block py-1">
-                  {cat.category}
-                </Link>
+            <button
+              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+              className="w-full flex items-center justify-between py-2 text-xs font-bold uppercase tracking-wider text-[#FF8A00]"
+            >
+              <span>Services</span>
+              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180 text-[#FF8A00]' : 'text-slate-400'}`} />
+            </button>
+
+            {mobileServicesOpen && (
+              <div className="pl-2 space-y-2 pt-1 pb-2">
+                {navigationData.services.map((cat, idx) => {
+                  const isExpanded = expandedMobileCategory === idx;
+                  return (
+                    <div key={idx} className="border-b border-stone-100 pb-1.5 last:border-0">
+                      <button
+                        onClick={() => setExpandedMobileCategory(isExpanded ? null : idx)}
+                        className="w-full flex items-center justify-between py-1 text-xs font-bold text-[#17233A] hover:text-[#FF8A00]"
+                      >
+                        <div className="flex items-center space-x-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#FF8A00]" />
+                          <span>{cat.category}</span>
+                        </div>
+                        <ChevronDown className={`w-3.5 h-3.5 transition-transform text-slate-400 ${isExpanded ? 'rotate-180 text-[#FF8A00]' : ''}`} />
+                      </button>
+
+                      {isExpanded && (
+                        <div className="pl-3.5 pt-1 pb-1 space-y-1.5">
+                          {cat.items.map((item, iIdx) => (
+                            <Link
+                              key={iIdx}
+                              to={item.href}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="block py-1 text-xs text-stone-600 hover:text-[#FF8A00]"
+                            >
+                              <span className="font-semibold text-stone-800">{item.title}</span>
+                              <span className="block text-[10.5px] text-stone-400">{item.desc}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
-            ))}
+            )}
           </div>
 
           <div className="border-t border-slate-100 pt-2">
             <div className="text-xs font-bold uppercase tracking-wider text-[#E58A1F] py-1">Knowledge Hub</div>
+            <Link to="/blogs" className="block py-1 text-xs text-slate-700">Blogs & Insights</Link>
             <Link to="/whitepapers" className="block py-1 text-xs text-slate-700">Whitepapers</Link>
             <Link to="/casestudies" className="block py-1 text-xs text-slate-700">Case Studies</Link>
             <Link to="/datasheets" className="block py-1 text-xs text-slate-700">Data Sheets</Link>
@@ -416,6 +471,92 @@ export default function Header() {
             >
               Get in Touch &rarr;
             </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Global Site Search Modal */}
+      {searchOpen && (
+        <div 
+          className="fixed inset-0 z-[100] bg-[#17233A]/60 backdrop-blur-xs flex items-start justify-center pt-20 px-4"
+          onClick={() => setSearchOpen(false)}
+        >
+          <div 
+            className="bg-white rounded-lg shadow-2xl border border-stone-200 w-full max-w-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-4 border-b border-stone-200 flex items-center space-x-3 bg-stone-50">
+              <Search className="w-5 h-5 text-[#FF8A00]" />
+              <input
+                type="text"
+                autoFocus
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search services, solutions, cloud architectures..."
+                className="w-full text-sm font-medium text-[#17233A] placeholder-stone-400 bg-transparent focus:outline-none"
+              />
+              <button 
+                type="button"
+                onClick={() => { setSearchOpen(false); setSearchQuery(''); }} 
+                className="p-1 text-stone-400 hover:text-stone-700 rounded-md hover:bg-stone-200/60 transition cursor-pointer"
+                aria-label="Close search"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="max-h-[60vh] overflow-y-auto p-4 space-y-2">
+              {searchQuery.trim().length === 0 ? (
+                <div className="py-8 text-center text-xs text-stone-400">
+                  <p className="font-semibold text-stone-600 mb-1">Quick Search Across PetaBytz</p>
+                  <p>Type keywords like "Gen AI", "Cloud Migration", "Salesforce", "Kubernetes", "ITSM"...</p>
+                </div>
+              ) : searchResults.length > 0 ? (
+                <div>
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-stone-400 mb-2">
+                    Matching Services ({searchResults.length})
+                  </div>
+                  <div className="space-y-1.5">
+                    {searchResults.map((s) => (
+                      <Link
+                        key={s.slug}
+                        to={`/${s.slug}`}
+                        onClick={() => { setSearchOpen(false); setSearchQuery(''); }}
+                        className="flex items-start justify-between p-3 rounded-md hover:bg-amber-50/60 border border-transparent hover:border-amber-200 transition group"
+                      >
+                        <div>
+                          <div className="text-xs font-bold text-[#17233A] group-hover:text-[#FF8A00] transition">
+                            {s.title}
+                          </div>
+                          <div className="text-[11px] text-stone-500 line-clamp-1 mt-0.5">
+                            {s.overview}
+                          </div>
+                        </div>
+                        <span className="text-[10px] font-semibold text-[#FF8A00] bg-amber-50 border border-amber-200 px-2 py-0.5 rounded shrink-0 ml-3">
+                          {s.category}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="py-8 text-center text-xs text-stone-400">
+                  <p className="font-semibold text-stone-600 mb-1">No exact services found for "{searchQuery}"</p>
+                  <p>Try searching for cloud, data, security, AI, or managed services.</p>
+                </div>
+              )}
+            </div>
+
+            <div className="p-3 bg-stone-50 border-t border-stone-200 flex items-center justify-between text-[11px] text-stone-500">
+              <span>Press <kbd className="px-1.5 py-0.5 bg-white border border-stone-200 rounded text-[10px] font-mono">ESC</kbd> to exit</span>
+              <Link 
+                to="/contact-us" 
+                onClick={() => setSearchOpen(false)}
+                className="font-semibold text-[#FF8A00] hover:text-[#C97210]"
+              >
+                Need custom consultation? Contact Us &rarr;
+              </Link>
+            </div>
           </div>
         </div>
       )}

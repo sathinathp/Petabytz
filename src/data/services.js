@@ -5,7 +5,7 @@ export const servicesData = {
     category: "Cloud Transformation",
     title: "Cloud Transformation Services",
     subtitle: "Accelerate your digital evolution with enterprise-grade multi-cloud strategies, seamless migration, and modern infrastructure.",
-    heroImage: "/images/new/digital-transformation.png",
+    heroImage: "/images/services/cloud-transformation.png",
     overview: "PetaBytz Technologies empowers enterprises to navigate the complexities of cloud adoption. From legacy workload refactoring to modern serverless microservices architectures on AWS, Azure, and Google Cloud, we ensure zero disruption and maximum return on investment.",
     features: [
       { title: "Strategic Roadmap", desc: "Holistic cloud readiness assessment and customized multi-phase modernization blueprint." },
@@ -69,7 +69,7 @@ export const servicesData = {
     category: "Cloud Transformation",
     title: "Data Center Modernization",
     subtitle: "Transform legacy hardware into software-defined, hyper-converged, and cloud-ready infrastructure.",
-    heroImage: "/images/services/data-center.png",
+    heroImage: "/images/services/data-center-modernization.png",
     overview: "Modernize your on-premise infrastructure with software-defined networking, automated virtualization, and hybrid-cloud integration for optimal agility and security.",
     features: [
       { title: "Hyper-Converged Infrastructure (HCI)", desc: "Consolidate compute, storage, and networking into unified nodes." },
@@ -89,7 +89,7 @@ export const servicesData = {
     category: "Cloud Transformation",
     title: "Application & Mainframe Modernization",
     subtitle: "Transform monolithic applications and legacy mainframes into modular, cloud-native microservices.",
-    heroImage: "/images/services/app-modernization.png",
+    heroImage: "/images/services/mainframe-application.png",
     overview: "Unlock the agility of modern cloud architectures without losing years of business logic. PetaBytz migrates COBOL, RPG, and legacy monolithic codebases into scalable containers and microservices.",
     features: [
       { title: "Legacy Code Refactoring", desc: "Automated translation and modern API wrapping for mainframe applications." },
@@ -109,7 +109,7 @@ export const servicesData = {
     category: "Cloud Transformation",
     title: "Business Continuity & Disaster Recovery (BCDR)",
     subtitle: "Protect business revenue and data integrity with near-zero RTO and RPO automated disaster recovery.",
-    heroImage: "/images/services/bcdr.png",
+    heroImage: "/images/services/business-continuity-and-disaster-recovery.png",
     overview: "Disasters happen unexpectedly. PetaBytz designs resilient disaster recovery blueprints with automated failover, geo-redundant live data replication, and continuous disaster simulation.",
     features: [
       { title: "Disaster Recovery as a Service (DRaaS)", desc: "Fully managed cloud failover targets for critical enterprise databases and systems." },
@@ -130,7 +130,7 @@ export const servicesData = {
     category: "Digital Transformation",
     title: "Digital Transformation Services",
     subtitle: "Rethink business models, automate workflows, and empower teams with next-generation digital platforms.",
-    heroImage: "/images/new/digital-transformation.png",
+    heroImage: "/images/services/digital-transforamtion.png",
     overview: "We partner with global enterprises to drive digital innovation. From modern collaboration suites to enterprise data analytics and automated DevOps, we build the technological foundation for continuous growth.",
     features: [
       { title: "Workplace Modernization", desc: "Unify hybrid teams with Microsoft 365, Teams, and secure remote tools." },
@@ -150,7 +150,7 @@ export const servicesData = {
     category: "Digital Transformation",
     title: "Microsoft 365 Consulting & Migration",
     subtitle: "Maximize productivity, enhance collaboration, and secure your workforce with tailored Microsoft 365 solutions.",
-    heroImage: "/images/microsoft365.png",
+    heroImage: "/images/services/microsoft-365.png",
     overview: "As a trusted Microsoft Solutions Partner, PetaBytz provides end-to-end M365 planning, tenant migration, SharePoint architecture, Microsoft Teams telephony, and Microsoft Purview security governance.",
     features: [
       { title: "Tenant-to-Tenant & Exchange Migration", desc: "Zero-data-loss mailbox, SharePoint, and OneDrive migrations." },
@@ -171,7 +171,7 @@ export const servicesData = {
     category: "Digital Transformation",
     title: "SAP Solutions & S/4 HANA Upgrades",
     subtitle: "Modernize ERP systems, migrate SAP workloads to Azure, and optimize business processes.",
-    heroImage: "/images/services/sap.png",
+    heroImage: "/images/new/sap/SAP SERVICES.png",
     overview: "PetaBytz delivers comprehensive SAP implementation, modernization, and managed services. We help enterprises transition from legacy SAP ECC to SAP S/4HANA on cloud with minimal business disruption.",
     features: [
       { title: "SAP on Azure / AWS Migration", desc: "High-performance certified infrastructure for critical SAP databases." },
@@ -231,7 +231,7 @@ export const servicesData = {
     category: "Digital Transformation",
     title: "Kubernetes & Container Services",
     subtitle: "Enterprise container orchestration, microservices governance, and automated scaling on EKS, AKS, & GKE.",
-    heroImage: "/images/services/kubernetes.png",
+    heroImage: "/images/services/kubernetes-services.jpg",
     overview: "Master container orchestration at enterprise scale. PetaBytz designs production-grade Kubernetes clusters with service mesh (Istio), automated pod autoscaling, zero-trust network policies, and persistent storage.",
     features: [
       { title: "Managed Kubernetes Setup", desc: "Production-ready Amazon EKS, Azure AKS, and Google Cloud GKE clusters." },
@@ -251,7 +251,7 @@ export const servicesData = {
     category: "Digital Transformation",
     title: "Low Code / No Code Application Development",
     subtitle: "Build enterprise applications, portals, and workflow automations up to 5x faster.",
-    heroImage: "/images/services/low-code.png",
+    heroImage: "/images/services/low-code-no-code.png",
     overview: "Empower business teams and accelerate software delivery. We leverage platforms like Microsoft Power Apps, OutSystems, and Mendix to rapidly build secure, cross-platform enterprise applications.",
     features: [
       { title: "Rapid Application Prototyping", desc: "Turn business logic into functional web and mobile apps in days." },
@@ -293,7 +293,7 @@ export const servicesData = {
     category: "Managed Services",
     title: "AWS Managed Services (AMS)",
     subtitle: "Certified AWS Premier Cloud Partner managing your architecture, security, and cost efficiency 24/7.",
-    heroImage: "/images/services/aws.png",
+    heroImage: "/images/services/AWS managed services.png",
     overview: "Maximize the potential of your Amazon Web Services investment. From EC2 and EKS to RDS, Lambda, and CloudFront, PetaBytz delivers certified 24/7 AWS management.",
     features: [
       { title: "AWS Well-Architected Reviews", desc: "Audit architecture across Security, Reliability, Performance, and Cost." },
@@ -313,7 +313,7 @@ export const servicesData = {
     category: "Managed Services",
     title: "Microsoft Azure Managed Services",
     subtitle: "Enterprise Azure infrastructure administration, hybrid-cloud monitoring, and cost governance.",
-    heroImage: "/images/services/azure.png",
+    heroImage: "/images/services/azure-managed-services.png",
     overview: "PetaBytz is an official Microsoft Gold Partner providing complete Azure lifecycle management. We handle Azure Virtual Desktop, Azure SQL, AKS, and Entra ID security around the clock.",
     features: [
       { title: "Azure Infrastructure Management", desc: "Virtual machines, storage accounts, VNET routing, and load balancers." },
@@ -333,7 +333,7 @@ export const servicesData = {
     category: "Managed Services",
     title: "Application Managed Services (AMS)",
     subtitle: "Maintain, optimize, and continuously enhance your mission-critical enterprise applications.",
-    heroImage: "/images/services/ams.png",
+    heroImage: "/images/services/application-managed-services.png",
     overview: "Ensure your custom web, mobile, and legacy applications deliver high performance and bug-free user experiences. Our AMS team provides L2/L3 code fixes, feature enhancements, and database tuning.",
     features: [
       { title: "Bug Fixing & Code Maintenance", desc: "Rapid defect triage, regression testing, and code hotfixes." },
@@ -353,7 +353,7 @@ export const servicesData = {
     category: "Managed Services",
     title: "NOC & SOC Operations Services",
     subtitle: "24/7 unified Network Operations and Security Operations monitoring to safeguard enterprise infrastructure.",
-    heroImage: "/images/services/soc-noc.png",
+    heroImage: "/images/services/noc-soc.png",
     overview: "Combine uninterrupted network uptime with ironclad cybersecurity. PetaBytz operates 24/7/365 NOC and SOC command centers utilizing AI-powered SIEM/SOAR platforms.",
     features: [
       { title: "Network Operations Center (NOC)", desc: "Traffic analysis, bandwidth monitoring, latency alerts, and switch/router care." },
@@ -374,7 +374,7 @@ export const servicesData = {
     category: "ITSM Managed Services",
     title: "ITSM Managed Services",
     subtitle: "ITIL-aligned servicedesk, multi-tier user support, and intelligent incident management.",
-    heroImage: "/images/services/itsm.png",
+    heroImage: "/images/services/infrastructure-managed-services.png",
     overview: "Transform your internal IT support into a responsive, customer-first service engine. PetaBytz delivers omnichannel IT Service Desk (Email, Phone, Chat, Self-Service Portal) with rapid first-contact resolution.",
     features: [
       { title: "Omnichannel Service Desk", desc: "24/7 support via Slack, Teams, email, phone, and ticketing portals." },
@@ -394,7 +394,7 @@ export const servicesData = {
     category: "ITSM Managed Services",
     title: "L1 Support Managed Services",
     subtitle: "First line of defense for 24/7 user inquiries, password resets, access management, and incident logging.",
-    heroImage: "/images/services/l1.png",
+    heroImage: "/images/services/l1-support.png",
     overview: "Empower your employees with instant help. PetaBytz L1 Managed Support provides rapid triage, automated password resets, software installation assistance, and accurate escalation to specialized engineering teams.",
     features: [
       { title: "24/7/365 User Assistance", desc: "Always-on helpdesk ready to assist remote and office personnel worldwide." },
@@ -414,7 +414,7 @@ export const servicesData = {
     category: "ITSM Managed Services",
     title: "L2 / Tier 2 Support Managed Services",
     subtitle: "Deep technical troubleshooting, OS diagnostics, database errors, and advanced application debugging.",
-    heroImage: "/images/services/l2.png",
+    heroImage: "/images/services/l2-support.png",
     overview: "When complex issues exceed initial helpdesk scripts, PetaBytz L2 Support specialists step in with in-depth system knowledge, diagnostic tooling, and specialized platform expertise.",
     features: [
       { title: "Advanced OS & Server Triage", desc: "Windows, Linux, macOS system crashes, kernel panics, and patch debugging." },
@@ -434,7 +434,7 @@ export const servicesData = {
     category: "ITSM Managed Services",
     title: "Deskside Support Services",
     subtitle: "Hands-on, on-site hardware maintenance, device staging, and VIP executive technical assistance.",
-    heroImage: "/images/services/deskside.png",
+    heroImage: "/images/services/desksisde-support.png",
     overview: "Ensure your physical offices and remote personnel have properly provisioned, reliable hardware. We handle laptop provisioning, peripheral setup, conference room AV systems, and physical asset repairs.",
     features: [
       { title: "Device Staging & Imaging", desc: "Standardized OS deployments via Intune / Autopilot and asset tagging." },
@@ -454,7 +454,7 @@ export const servicesData = {
     category: "ITSM Managed Services",
     title: "Asset & Problem Management",
     subtitle: "Complete IT asset lifecycle tracking, license compliance, and systematic defect elimination.",
-    heroImage: "/images/services/asset.png",
+    heroImage: "/images/services/asset-and-problem-management.png",
     overview: "Prevent IT chaos with unified hardware/software asset management (ITAM) and structured ITIL Problem Management. We uncover underlying systemic flaws and ensure optimal asset utilization.",
     features: [
       { title: "IT Asset Management (ITAM)", desc: "Track procurement, warranty, software licenses, and depreciation." },
@@ -475,7 +475,7 @@ export const servicesData = {
     category: "AI Solutions",
     title: "Enterprise AI & Cognitive Solutions",
     subtitle: "Transform raw enterprise data into intelligent automated decisions, custom LLMs, and neural networks.",
-    heroImage: "/images/services/ai-solutions.png",
+    heroImage: "/images/services/AI_services.png",
     overview: "PetaBytz delivers full-lifecycle Artificial Intelligence solutions. From exploratory data analysis and algorithm selection to production MLOps and LLM fine-tuning, we turn AI ambitions into measurable enterprise value.",
     features: [
       { title: "Generative AI & LLM Systems", desc: "Custom ChatGPT-like assistants trained on private company knowledge bases." },
@@ -495,7 +495,7 @@ export const servicesData = {
     category: "AI Solutions",
     title: "Generative AI & LLM Engineering",
     subtitle: "Build secure, enterprise-grade AI agents, semantic search engines, and RAG architectures.",
-    heroImage: "/images/services/gen-ai.png",
+    heroImage: "/images/new/ai/generative_ai.png",
     overview: "Leverage Retrieval-Augmented Generation (RAG), OpenAI, Anthropic, and open-source models (Llama 3, Mistral) with guaranteed privacy and zero data leakage.",
     features: [
       { title: "Enterprise RAG Architectures", desc: "Connect vector databases (Pinecone, pgvector) with proprietary documentation." },
@@ -507,7 +507,29 @@ export const servicesData = {
       "Massive reduction in document review times",
       "Tailored tone and business rules aligned with your brand"
     ],
-    relatedServices: ["ai-solutions", "natural-language-processing", "data-analytics"]
+    relatedServices: ["agentic-ai", "ai-solutions", "natural-language-processing", "data-analytics"]
+  },
+
+  "agentic-ai": {
+    slug: "agentic-ai",
+    category: "AI Solutions",
+    title: "Agentic AI & Autonomous Decision Systems",
+    subtitle: "Empower your enterprise with autonomous goal-oriented AI agents, multi-agent orchestration, and enterprise tool integration.",
+    heroImage: "/images/services/AI_services.png",
+    overview: "PetaBytz designs and deploys secure, enterprise-grade Agentic AI systems capable of goal decomposition, autonomous tool usage, cross-application workflow execution, and real-time reasoning with human-in-the-loop governance.",
+    features: [
+      { title: "Autonomous Multi-Agent Swarms", desc: "Coordinated agent architectures leveraging LangGraph, AutoGen, and CrewAI for complex cross-functional tasks." },
+      { title: "Tool & API Orchestration", desc: "Empower AI agents to securely query enterprise ERPs, execute database transactions, and call third-party APIs." },
+      { title: "Human-in-the-Loop Governance", desc: "Configurable approval thresholds and deterministic audit logging for mission-critical operations." },
+      { title: "Self-Reflecting Reasoning Loops", desc: "Continuous reflection, validation, and error correction ensuring output fidelity and precision." }
+    ],
+    benefits: [
+      "Autonomous resolution of multi-step business and operational processes",
+      "Seamless integration with enterprise ITSM, Salesforce, and cloud environments",
+      "Comprehensive audit trails with strict SOC 2 and ISO 27001 compliance guardrails",
+      "Up to 80% reduction in manual cross-system coordination overhead"
+    ],
+    relatedServices: ["gen-ai-services", "machine-learning", "ai-solutions", "natural-language-processing"]
   },
 
   "machine-learning": {
@@ -515,7 +537,7 @@ export const servicesData = {
     category: "AI Solutions",
     title: "Machine Learning (ML) & MLOps",
     subtitle: "Develop, train, and deploy high-performance predictive models with automated MLOps pipelines.",
-    heroImage: "/images/services/machine-learning.png",
+    heroImage: "/images/services/neural-network.png",
     overview: "Turn historical data into actionable foresight. PetaBytz builds regression, classification, clustering, and recommendation models deployed on AWS SageMaker, Azure ML, and Vertex AI.",
     features: [
       { title: "Predictive Analytics Models", desc: "Revenue forecasting, customer lifetime value, and credit risk scoring." },
@@ -535,7 +557,7 @@ export const servicesData = {
     category: "AI Solutions",
     title: "Natural Language Processing (NLP)",
     subtitle: "Extract intelligence from unstructured text, automate document processing, and power multilingual interactions.",
-    heroImage: "/images/nlp_text_generation.png",
+    heroImage: "/images/services/Natural-Language-Processing.png",
     overview: "Transform unstructured textual data into actionable intelligence. We build custom NLP pipelines for sentiment analysis, named entity recognition (NER), semantic document search, and multilingual translation.",
     features: [
       { title: "Intelligent Document Processing (IDP)", desc: "Extract key-value pairs from invoices, contracts, and medical records." },
@@ -555,7 +577,7 @@ export const servicesData = {
     category: "AI Solutions",
     title: "Deep Learning & Neural Networks",
     subtitle: "Advanced computer vision, convolutional neural networks (CNNs), and audio/video processing at scale.",
-    heroImage: "/images/services/deep-learning.png",
+    heroImage: "/images/services/neural-network.png",
     overview: "Solve high-complexity cognitive challenges. We design custom deep neural networks using PyTorch and TensorFlow for automated defect detection, facial biometric authentication, and audio processing.",
     features: [
       { title: "Computer Vision & Object Detection", desc: "Quality inspection in manufacturing, OCR, and spatial tracking." },
@@ -576,7 +598,7 @@ export const servicesData = {
     category: "Salesforce Services",
     title: "Salesforce Consulting & Implementation",
     subtitle: "Maximize ROI on your CRM investment with certified Salesforce advisory, implementation, and 24/7 support.",
-    heroImage: "/images/services/salesforce.png",
+    heroImage: "/images/services/salesforce-services.png",
     overview: "PetaBytz is an end-to-end Salesforce partner. Whether deploying Sales Cloud, Service Cloud, Marketing Cloud, or integrating Tableau Analytics, our certified architects build scalable, user-friendly solutions.",
     features: [
       { title: "Sales & Service Cloud", desc: "Automate lead capture, opportunity pipelines, and customer support ticketing." },
@@ -597,7 +619,7 @@ export const servicesData = {
     category: "Salesforce Services",
     title: "Salesforce Advisory & Strategy",
     subtitle: "Strategic CRM roadmap, license optimization, and business architecture alignment.",
-    heroImage: "/images/services/salesforce-advisory.png",
+    heroImage: "/images/new/salesforce/Salesforce Advisory Services.png",
     overview: "Get maximum business value from your Salesforce investment. Our certified consultants audit existing CRM instances, identify bottlenecks, and build an actionable multi-year roadmap.",
     features: [
       { title: "Instance Health Check", desc: "Audit data quality, Apex code limits, and security vulnerabilities." },
@@ -617,7 +639,7 @@ export const servicesData = {
     category: "Salesforce Services",
     title: "Salesforce Implementation Services",
     subtitle: "Turnkey configuration, custom development, and seamless rollout of Salesforce clouds.",
-    heroImage: "/images/services/salesforce-impl.png",
+    heroImage: "/images/new/salesforce/Salesforce Implementation.png",
     overview: "From greenfield rollouts to enterprise migrations from legacy CRMs, PetaBytz ensures on-time, within-budget implementation of Sales Cloud, Service Cloud, Experience Cloud, and CPQ.",
     features: [
       { title: "Agile Implementation Methodology", desc: "Iterative sprints with stakeholder demos and continuous user feedback." },
@@ -637,7 +659,7 @@ export const servicesData = {
     category: "Salesforce Services",
     title: "Salesforce Integrations & MuleSoft",
     subtitle: "Connect Salesforce seamlessly with ERP, marketing tools, databases, and custom backends.",
-    heroImage: "/images/services/salesforce-int.png",
+    heroImage: "/images/new/salesforce/Salesforce Integrations.png",
     overview: "Break down data silos. PetaBytz integrates Salesforce with enterprise systems (SAP, Oracle, QuickBooks, HubSpot, Stripe) using MuleSoft, REST/SOAP APIs, and webhook event buses.",
     features: [
       { title: "MuleSoft & Middleware Integration", desc: "Enterprise-grade API-led connectivity and data orchestration." },
@@ -657,7 +679,7 @@ export const servicesData = {
     category: "Salesforce Services",
     title: "Salesforce Managed Services",
     subtitle: "Continuous CRM administration, ongoing enhancements, and proactive platform governance.",
-    heroImage: "/images/services/salesforce-managed.png",
+    heroImage: "/images/new/salesforce/Salesforce Managed Services.png",
     overview: "Maintain an agile CRM without the overhead of hiring full-time Salesforce admins and developers. PetaBytz Managed Services provides flexible monthly blocks of certified expert support.",
     features: [
       { title: "User & Security Administration", desc: "Roles, profiles, permission sets, sharing rules, and onboarding." },
@@ -677,7 +699,7 @@ export const servicesData = {
     category: "Salesforce Services",
     title: "Salesforce 24/7 Support Services",
     subtitle: "Round-the-clock incident response, bug fixes, and critical uptime guarantee for global sales teams.",
-    heroImage: "/images/services/salesforce-support.png",
+    heroImage: "/images/new/salesforce/Salesforce 24_7 Support.png",
     overview: "Never let a technical bug stall your sales pipeline. Our global support team provides 24/7 monitoring, instant bug fixes, and critical issue escalation across all time zones.",
     features: [
       { title: "Round-the-Clock Helpdesk", desc: "Immediate assistance for global sales and customer service reps." },
@@ -697,7 +719,7 @@ export const servicesData = {
     category: "Salesforce Services",
     title: "Salesforce CRM Analytics & Tableau",
     subtitle: "Uncover actionable customer intelligence, pipeline trends, and predictive AI insights.",
-    heroImage: "/images/services/salesforce-analytics.png",
+    heroImage: "/images/new/salesforce/Salesforce Analytics Services.png",
     overview: "Empower leadership with crystal-clear visibility. PetaBytz builds intelligent dashboards using CRM Analytics (formerly Einstein Analytics) and Tableau for predictive revenue forecasting.",
     features: [
       { title: "Einstein Discovery & AI Predictions", desc: "Machine learning models predicting lead conversion and deal win rates." },
@@ -718,7 +740,7 @@ export const servicesData = {
     category: "Business Consulting",
     title: "Business Consulting & Workforce Solutions",
     subtitle: "Strategic tech consulting, agile workforce scaling, and enterprise cyber resilience.",
-    heroImage: "/images/new/category/offshore development.png",
+    heroImage: "/images/services/Business consulting.png",
     overview: "PetaBytz advises executives on technology investments, digital organizational change, remote talent scaling, and cybersecurity risk management.",
     features: [
       { title: "IT Strategy & Advisory", desc: "Align IT infrastructure investments with long-term revenue objectives." },

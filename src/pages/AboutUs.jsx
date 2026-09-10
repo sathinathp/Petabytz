@@ -11,7 +11,11 @@ import {
   Phone, 
   Mail,
   Award,
-  ArrowRight
+  ArrowRight,
+  Lock,
+  Server,
+  TrendingUp,
+  BarChart3
 } from 'lucide-react';
 import SeoMeta from '../components/SeoMeta';
 import StatCounters from '../components/StatCounters';
@@ -48,16 +52,25 @@ export default function AboutUs() {
       />
 
       {/* Hero Banner */}
-      <section className="relative gradient-hero-bg text-white py-16 lg:py-24 border-b border-slate-800">
-        <div className="hero-pattern absolute inset-0 opacity-30 pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-          <span className="inline-block bg-brand-orange/20 text-brand-orange text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-brand-orange/30 mb-4">
-            About PetaBytz Technologies
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Catalysts for Enterprise <span className="gradient-text-orange">Digital Transformation</span>
+      <section 
+        className="relative bg-[#FAF7F2] border-b border-stone-200 py-12 lg:py-16 overflow-hidden"
+        style={{
+          backgroundImage: 'url(/images/background/subheader.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="absolute inset-0 bg-[#FAF7F2]/85 backdrop-blur-[1px]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center space-x-2 text-xs font-semibold text-stone-500 uppercase tracking-wider mb-3">
+            <Link to="/" className="hover:text-[#E58A1F] transition">Home</Link>
+            <span>/</span>
+            <span className="text-[#17233A]">About Us</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#17233A] tracking-tight">
+            Catalysts for Enterprise <span className="text-[#E58A1F]">Digital Transformation</span>
           </h1>
-          <p className="text-base sm:text-lg text-slate-300 mt-4 leading-relaxed">
+          <p className="mt-2 text-sm sm:text-base text-stone-600 max-w-3xl leading-relaxed">
             A customer-centric transformational global IT partner with deep expertise across multi-cloud architectures, 24/7 managed operations, and modern AI engineering.
           </p>
         </div>
@@ -150,6 +163,65 @@ export default function AboutUs() {
                   </div>
                   <h3 className="text-lg font-bold text-[#022f46]">{p.title}</h3>
                   <p className="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">{p.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Engineering Governance & Strategic Commitments */}
+      <section className="py-20 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FF8A00] bg-[#FF8A00]/10 px-3 py-1 rounded-full">
+              Enterprise Governance
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#022f46] mt-2">
+              Our Architectural & Operational Standards
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-500 mt-2">
+              How we enforce security, uptime, and financial transparency across every customer engagement.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: "Zero-Trust Security by Design",
+                desc: "Every cloud environment enforces least-privilege IAM, automated KMS encryption in transit/at rest, and continuous vulnerability telemetry.",
+                icon: Lock
+              },
+              {
+                title: "ITIL v4 SLA Excellence",
+                desc: "Guaranteed 15-minute response for critical P1 incidents with automated escalation matrices and root cause analysis (RCA) reporting.",
+                icon: Server
+              },
+              {
+                title: "FinOps Spend Accountability",
+                desc: "Continuous cloud right-sizing, reserved instance utilization monitoring, and zero-waste budget alerting to protect client capital.",
+                icon: TrendingUp
+              },
+              {
+                title: "Certified Center of Excellence",
+                desc: "300+ certified architects across AWS, Microsoft, and Salesforce undergoing quarterly recertification and sandbox testing.",
+                icon: Award
+              }
+            ].map((gov, idx) => (
+              <div 
+                key={idx}
+                className="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-[#FF8A00] transition flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-10 h-10 rounded-xl bg-[#022f46] text-white flex items-center justify-center mb-4">
+                    <gov.icon className="w-5 h-5 text-[#FF8A00]" />
+                  </div>
+                  <h3 className="text-base font-bold text-[#022f46] mb-2">{gov.title}</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">{gov.desc}</p>
+                </div>
+                <div className="pt-4 mt-4 border-t border-slate-200/80 flex items-center text-[11px] font-semibold text-[#FF8A00]">
+                  <CheckCircle2 className="w-3.5 h-3.5 mr-1.5" />
+                  <span>Audited Standard</span>
                 </div>
               </div>
             ))}

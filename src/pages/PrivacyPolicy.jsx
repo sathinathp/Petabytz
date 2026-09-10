@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SeoMeta from '../components/SeoMeta';
 
 export default function PrivacyPolicy() {
@@ -9,10 +10,28 @@ export default function PrivacyPolicy() {
         description="PetaBytz Technologies Privacy Policy and compliance guidelines regarding information security and data confidentiality."
       />
 
-      <section className="py-16 bg-[#022f46] text-white border-b border-slate-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl font-extrabold">Privacy Policy</h1>
-          <p className="text-slate-300 text-sm mt-2">Last Updated: January 2025</p>
+      {/* Hero */}
+      <section 
+        className="relative bg-[#FAF7F2] border-b border-stone-200 py-12 lg:py-16 overflow-hidden"
+        style={{
+          backgroundImage: 'url(/images/background/subheader.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="absolute inset-0 bg-[#FAF7F2]/85 backdrop-blur-[1px]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center space-x-2 text-xs font-semibold text-stone-500 uppercase tracking-wider mb-3">
+            <Link to="/" className="hover:text-[#E58A1F] transition">Home</Link>
+            <span>/</span>
+            <span className="text-[#17233A]">Privacy Policy</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#17233A] tracking-tight">
+            Privacy Policy & <span className="text-[#E58A1F]">Data Protection</span>
+          </h1>
+          <p className="mt-2 text-sm sm:text-base text-stone-600 max-w-2xl">
+            Last Updated: January 2025 &bull; ISO 27001 & SOC 2 Compliance Framework
+          </p>
         </div>
       </section>
 

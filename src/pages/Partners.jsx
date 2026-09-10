@@ -1,5 +1,6 @@
 import React from 'react';
-import { Award, ShieldCheck, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Award, ShieldCheck, CheckCircle2, ArrowRight, Sparkles, Building2, ExternalLink } from 'lucide-react';
 import SeoMeta from '../components/SeoMeta';
 import CTASection from '../components/CTASection';
 
@@ -8,87 +9,165 @@ export default function Partners() {
     {
       name: "Microsoft Solutions Partner",
       level: "Gold Cloud Platform & Productivity",
-      desc: "Deep engineering integration across Microsoft Azure, Microsoft 365, Entra ID security, and Microsoft Copilot.",
-      benefits: ["Direct escalation access to Microsoft Tier-3 engineering", "Fast-track tenant migration funding and proof-of-concept credits", "Certified Azure Solutions Architects and M365 Security administrators"]
+      desc: "Deep integration across Microsoft Azure, Microsoft 365, Copilot AI Studio, and Power Platform migrations with tier-1 enterprise escalations.",
+      icon: "/images/microsoft-products.png",
+      benefits: ["Azure FastTrack Architecture reviews", "Enterprise Microsoft 365 tenant consolidations", "Funded Cloud PoCs and migration grants"]
     },
     {
-      name: "Amazon Web Services (AWS)",
-      level: "Select Consulting & Managed Service Partner",
-      desc: "Proven track record in deploying Amazon EKS clusters, Serverless Lambda architectures, and RDS databases.",
-      benefits: ["AWS Well-Architected Framework reviews and remediation", "Migration Acceleration Program (MAP) subsidy eligibility", "Dedicated AWS certified DevOps and Security engineers"]
+      name: "AWS Advanced Tier Partner",
+      level: "Certified Cloud Migration & Well-Architected",
+      desc: "Delivering resilient AWS cloud foundations, serverless architectures, DevOps CI/CD automation, and Cost Optimization assessments.",
+      icon: "/images/services/AWS managed services.png",
+      benefits: ["Automated Terraform/CloudFormation IaC pipelines", "AWS Well-Architected operational reviews", "24/7 AWS Cloud Operations with guaranteed response times"]
     },
     {
       name: "Salesforce Registered Partner",
-      level: "Consulting & Custom App Integration",
-      desc: "Specialists in Sales Cloud, Service Cloud, Experience Cloud, and custom Lightning Web Components (LWC).",
-      benefits: ["End-to-end CRM audits and technical debt elimination", "Bi-directional ERP and third-party API connectivity", "24/7 dedicated Salesforce administrator and developer support"]
+      level: "Consulting, Integrations & Managed Services",
+      desc: "End-to-end Salesforce implementations, Sales Cloud, Service Cloud, and Einstein 1 AI automation for global commercial organizations.",
+      icon: "/images/clients/Salesforce Service.png",
+      benefits: ["Custom Lightning component development", "Seamless ERP & CRM data synchronizations", "Dedicated certified Salesforce administrators on demand"]
     },
     {
-      name: "SAP Partner Ecosystem",
-      level: "Cloud ERP Modernization & Basis Support",
-      desc: "Modernizing legacy SAP ECC systems to high-performance SAP S/4HANA instances hosted on Azure and AWS.",
+      name: "SAP Enterprise Partner",
+      level: "SAP on Azure & S/4HANA Migration Specialists",
+      desc: "Specialized in migrating business-critical SAP landscapes to hyperscaler clouds with near-zero downtime and optimized compute architectures.",
+      icon: "/images/new/sap/SAP SERVICES.png",
       benefits: ["Certified SAP Basis 24/7 monitoring and patching", "Zero-downtime database upgrades and custom ABAP remediation", "Integrated data analytics using Azure Synapse and PowerBI"]
     }
   ];
 
+  const ecosystemPartners = [
+    { name: "SoftwareONE Alliance", logo: "/images/softwareone-logo-blk.svg", role: "Cloud Software & Licensing" },
+    { name: "Readington Distribution", logo: "/images/logo/readington.svg", role: "Enterprise Technology Distribution" },
+    { name: "Bitwise Global", logo: "/images/bitwise.png", role: "Data Modernization & Analytics" },
+    { name: "Nordem Systems", logo: "/images/clients/nordem.png", role: "Infrastructure Solutions" }
+  ];
+
   return (
-    <div>
+    <div className="bg-white text-[#17233A] antialiased">
       <SeoMeta 
-        title="Our Strategic Partners & Cloud Alliances"
-        description="PetaBytz Technologies partners with Microsoft, AWS, Salesforce, and SAP to deliver enterprise-grade cloud transformations."
+        title="Our Strategic Partners & Cloud Alliances - PetaBytz"
+        description="PetaBytz Technologies partners with Microsoft, AWS, Salesforce, SAP, and global ecosystem leaders to deliver certified enterprise-grade technology consulting."
       />
 
-      {/* Hero */}
-      <section className="relative gradient-hero-bg text-white py-16 lg:py-20 border-b border-slate-800">
-        <div className="hero-pattern absolute inset-0 opacity-30 pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-          <span className="inline-block bg-brand-orange/20 text-brand-orange text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-brand-orange/30 mb-4">
-            Strategic Alliances
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            World-Class <span className="gradient-text-orange">Technology Partnerships</span>
+      {/* Hero Banner */}
+      <section 
+        className="relative bg-[#FAF7F2] border-b border-stone-200 py-12 lg:py-16 overflow-hidden"
+        style={{
+          backgroundImage: 'url(/images/background/subheader.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="absolute inset-0 bg-[#FAF7F2]/85 backdrop-blur-[1px]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center space-x-2 text-xs font-semibold text-stone-500 uppercase tracking-wider mb-3">
+            <Link to="/" className="hover:text-[#FF8A00] transition">Home</Link>
+            <span>/</span>
+            <span className="text-[#17233A]">Our Partners</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#17233A] tracking-tight">
+            World-Class <span className="text-[#FF8A00]">Technology Partnerships</span>
           </h1>
-          <p className="text-base sm:text-lg text-slate-300 mt-4 leading-relaxed">
+          <p className="mt-2 text-sm sm:text-base text-stone-600 max-w-3xl leading-relaxed">
             We collaborate with the world’s leading technology giants to bring certified enterprise solutions, funding incentives, and tier-1 support directly to our clients.
           </p>
         </div>
       </section>
 
-      {/* Partners Cards */}
-      <section className="py-20 bg-slate-50">
+      {/* Core Alliances */}
+      <section className="py-16 sm:py-20 bg-[#FAF7F2]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#FF8A00] block mb-1">
+              Certified Competencies
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17233A]">
+              Strategic Technology Alliances
+            </h2>
+            <p className="text-xs sm:text-sm text-stone-500 mt-2">
+              Deep, accredited partner relationships delivering direct engineering escalations and architectural co-innovation.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {partnerAlliances.map((partner, idx) => (
               <div 
                 key={idx}
-                className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-brand-orange/40 transition flex flex-col justify-between"
+                className="bg-white p-7 sm:p-8 rounded-md border border-[#DDDDDD] hover:border-[#FF8A00] transition-all duration-200 flex flex-col justify-between shadow-xs"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">
+                  <div className="flex items-center justify-between gap-4 mb-5 pb-4 border-b border-[#F0F0F0]">
+                    <div className="h-12 w-32 bg-[#FAF7F2] rounded border border-[#E8E2D9] p-1.5 flex items-center justify-center">
+                      <img 
+                        src={partner.icon} 
+                        alt={partner.name}
+                        className="max-h-9 max-w-[110px] object-contain"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#FF8A00] bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-xs">
                       {partner.level}
                     </span>
-                    <Award className="w-6 h-6 text-brand-orange" />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-[#022f46]">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#17233A]">
                     {partner.name}
                   </h3>
 
-                  <p className="text-slate-600 text-sm mt-3 leading-relaxed">
+                  <p className="text-stone-600 text-xs sm:text-[13px] mt-2.5 leading-relaxed">
                     {partner.desc}
                   </p>
 
-                  <div className="mt-6 pt-6 border-t border-slate-100 space-y-2.5">
-                    <div className="text-xs font-bold uppercase tracking-wider text-slate-700">Client Advantages:</div>
+                  <div className="mt-6 pt-5 border-t border-stone-100 space-y-2">
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-[#17233A]">Enterprise Benefits:</div>
                     {partner.benefits.map((b, bIdx) => (
-                      <div key={bIdx} className="flex items-start space-x-2 text-xs text-slate-600">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                      <div key={bIdx} className="flex items-start space-x-2 text-xs text-stone-600">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#FF8A00] shrink-0 mt-0.5" />
                         <span>{b}</span>
                       </div>
                     ))}
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Strategic Technology Ecosystem */}
+      <section className="py-14 sm:py-16 bg-white border-t border-[#E8E2D9]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#FF8A00] block mb-1">
+              Extended Network
+            </span>
+            <h2 className="text-xl sm:text-2xl font-bold text-[#17233A]">
+              Strategic Technology Ecosystem
+            </h2>
+            <p className="text-xs sm:text-sm text-stone-500 mt-1.5">
+              Collaborating across specialized vendors, system integrators, and software licensing providers.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center">
+            {ecosystemPartners.map((p, idx) => (
+              <div 
+                key={idx}
+                className="bg-[#FAF7F2]/50 border border-[#E8E2D9] rounded p-5 text-center flex flex-col items-center justify-center h-32 hover:border-[#FF8A00] hover:bg-white transition"
+              >
+                <img 
+                  src={p.logo} 
+                  alt={p.name}
+                  className="max-h-10 max-w-[130px] object-contain mb-2"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+                <span className="text-[11px] font-semibold text-[#17233A] block">{p.name}</span>
+                <span className="text-[10px] text-stone-500">{p.role}</span>
               </div>
             ))}
           </div>
